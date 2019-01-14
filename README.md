@@ -1,2 +1,2 @@
-# TheNarrative
-Transmedia story for a school course called The Narrative.
+# Globalisation
+A Scroll story that is using fullpage.js. Also it is zweverig 🙃
