@@ -50,7 +50,7 @@
 				&,
 				&::before,
 				&::after {
-					background-color: map-get($colors, primary);
+					background-color: map-get($colors, black);
 				}
 			}
 
