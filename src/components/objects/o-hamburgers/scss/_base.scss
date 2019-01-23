@@ -35,6 +35,7 @@
 }
 
 .o-hamburger-box {
+	pointer-events: none;
 	width: $hamburger-layer-width;
 	height: $hamburger-layer-height * 3 + $hamburger-layer-spacing * 2;
 	display: inline-block;
