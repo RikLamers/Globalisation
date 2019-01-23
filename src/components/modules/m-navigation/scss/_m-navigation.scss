@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+/* =============================================================================
+	CONFIG
+============================================================================= */
+
+$module-name: 'navigation';
+
+/* =============================================================================
+	BASE
+============================================================================= */
+
+.m-#{$module-name} {
+	@include rem(20);
+
+	button {
+		position: absolute;
+		top: 0px;
+		left: 10px;
+		z-index: 9;
+	}
+
+	&__list {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		display: none;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		padding-top: 50px;
+		background-color: map-get($colors, white);
+		overflow-y: scroll;
+		z-index: 3;
+
+		&.is--active {
+			display: block;
+		}
+
+	}
+
+	&__item {
+		text-align: center;
+		padding: 20px 0;
+
+		a {
+			color: map-get($colors, black);
+			padding: 20px 0;
+		}
+
+	}
+
+}
+
+.m-#{$module-name}.is--active {
+	display: block;
+}

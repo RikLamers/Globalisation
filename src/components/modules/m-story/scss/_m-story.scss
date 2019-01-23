@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+/* =============================================================================
+	CONFIG
+============================================================================= */
+
+$module-name: 'story';
+
+/* =============================================================================
+	BASE
+============================================================================= */
+
+.section {
+    position: relative;
+}
+
+.m-#{$module-name} {
+
+    &__paal {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 100px;
+        height: 100%;
+        z-index: 1;
+
+        &--top {
+            bottom: -61px;
+            width: 94px;
+        }
+
+    }
+
+    &__bg {
+        height: 100vh;
+        width: 100vw;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        background-size: cover;
+    }
+
+    div[data-number="bg1"] {
+        background-image: url('./assets/img/bg1.svg');
+    }
+    
+    div[data-number="bg2"] {
+        background-image: url('./assets/img/bg2.svg');
+    }
+
+    div[data-number="bg3"] {
+        background-image: url('./assets/img/bg3.svg');
+    }
+
+    div[data-number="bg4"] {
+        background-image: url('./assets/img/bg4.svg');
+    }
+
+    div[data-number="bg5"] {
+        background-image: url('./assets/img/bg5.svg');
+    }
+
+    div[data-number="bg6"] {
+        background-image: url('./assets/img/bg6.svg');
+    }
+
+    div[data-number="bg7"] {
+        background-image: url('./assets/img/bg7.svg');
+    }
+
+    div[data-number="bg8"] {
+        background-image: url('./assets/img/bg8.svg');
+    }
+
+    div[data-number="bg9"] {
+        background-image: url('./assets/img/bg9.svg');
+    }
+
+    &__moreinfo {
+        position: absolute;
+        top: 0;
+        right: -100vw;
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        z-index: 1;
+        transition: all 300ms ease-in-out;
+        color: white;
+
+        @media (min-width: breakpoint-min(md)) {
+            width: 33vw;
+            right: -33vw;
+        }
+
+        &.active {
+            right: 0;
+        }
+
+        &--content {
+            overflow-y: scroll;
+            height: 100%;
+            padding: 0 20px;
+        }
+
+    }
+
+}
