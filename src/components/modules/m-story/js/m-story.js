@@ -1,31 +1,6 @@
-// Optional. When using fullPage extensions
-//import scrollHorizontally from './fullpage.scrollHorizontally.min';
-
-// Optional. When using scrollOverflow:true
-//import IScroll from 'fullpage.js/vendors/scrolloverflow';
-
-// Importing fullpage.js
-// import fullpage from 'fullpage.js';
-
-// When using fullPage extensions replace the previous import
-// of fullpage.js for this file
-//import fullpage from 'fullpage.js/dist/fullpage.extensions.min';
-
-// Initializing it
-// var fullPageInstance = new fullpage('#fullpage', {
-// 	licenseKey: '',
-//     navigation: false,
-// 	sectionsColor:['#ff5f45', '#0798ec', '#fc6c7c', 'grey']
-// });
-
-// Calling methods
-// fullpage_api.moveSectionDown();
-// Or
-// fullPageInstance.moveSectionDown();
-
 import $ from 'jquery';
 import fullpage from 'fullpage.js';
-import { TweenMax } from 'gsap/all';
+import { TweenMax, TimelineMax } from 'gsap/all';
 
 class Story {
 	constructor() {
@@ -33,6 +8,7 @@ class Story {
 	}
 
 	setup() {
+		this.$lang = 'lim';
 		this.$moreInfoTextPerSection = [
 			{
 				title: 'test',
@@ -54,6 +30,7 @@ class Story {
 			}
 		];
 		this.$navButton = document.getElementsByClassName('m-navigation__toggle')[0];
+		this.$navItems = document.getElementsByClassName('m-navigation__item');
 		this.$holder = document.getElementsByClassName('m-story')[0];
 		this.$body = document.getElementsByTagName('body');
 		this.$moreInfo = document.getElementsByClassName('m-story__moreinfo')[0];
@@ -61,7 +38,8 @@ class Story {
 		this.$moreInfoBtn = document.getElementsByClassName('m-story__btn');
 		this.$moreInfoTitle = document.getElementsByClassName('m-story__moreinfo--title')[0];
 		this.$moreInfoQuote = document.getElementsByClassName('m-story__moreinfo--quote')[0];
-        this.$fullPageInstance = new fullpage('#m-story', {
+
+		this.$fullpageOptions = {
             licenseKey: '49DC2AC1-90EE4B99-807E2E82-35003862',
 			navigation: false,
 			anchors: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
@@ -69,9 +47,13 @@ class Story {
 			sectionsColor:['#ff5f45', '#0798ec', '#fc6c7c', 'tomato', '#ff5f45', '#0798ec', '#fc6c7c', 'tomato', 'pink'],
 			lazyLoading: true,
 			afterLoad: (origin, destination, direction) => {
+				this.clearTL(destination.anchor);
+				TweenMax.killAll(false, true, false);
 				this.checkAnimation(Number(destination.anchor));
 			}
-		});
+		};
+
+        this.$fullPageInstance = new fullpage('#m-story', this.$fullpageOptions);
 		this.$fullpageCell = document.getElementsByClassName('fp-tableCell');
 	}
 
@@ -80,23 +62,50 @@ class Story {
 			this.$moreInfoBtn[i].addEventListener('click', (e) => {
 				if (this.$moreInfo.classList.contains('active')) {
 					this.$moreInfo.classList.remove('active');
-					this.$fullPageInstance.setAllowScrolling(true);
+					this.$fullPageInstance = new fullpage('#m-story', this.$fullpageOptions);
 				} else {
 					this.$moreInfo.classList.add('active');
-					this.$fullPageInstance.setAllowScrolling(false);
+					this.$fullPageInstance.destroy();
 				}
 			});
 		}
+
+		for (let x = 0; x < this.$navItems.length; x++) {
+			this.$navItems[x].addEventListener('click', this.handleRoute.bind(this));
+		}
+
 		if (this.$navButton) {
 			this.$navButton.addEventListener('click', this.disableScroll.bind(this));
 		}
 	}
 
+	handleRoute(e) {
+		this.$fullPageInstance = new fullpage('#m-story', this.$fullpageOptions);
+		if ($(e.target).attr('data-menuanchor')) {
+			window.location.href = `/#${$(e.target).attr('data-menuanchor')}`;
+		}
+	}
+
+	clearTL(anchor) {
+		const clearTimeLine = new TimelineMax();
+
+			if (document.getElementsByClassName('m-story__text')[anchor-1]) {
+				const getChildCount = document.getElementsByClassName('m-story__text')[anchor-1].childElementCount;
+		
+				for (let i = 0; i < getChildCount; i++) {
+					clearTimeLine
+						.set(document.getElementsByClassName(`m-story__text${anchor}-${i+1}`), {
+							autoAlpha: 0
+						});
+				}
+			}
+	}
+
 	disableScroll(e) {
 		if (e.target.classList.contains('is--active')) {
-			this.$fullPageInstance.setAllowScrolling(false);
+			this.$fullPageInstance.destroy();
 		} else {
-			this.$fullPageInstance.setAllowScrolling(true);
+			this.$fullPageInstance = new fullpage('#m-story', this.$fullpageOptions);
 		}
 	}
 
@@ -107,11 +116,57 @@ class Story {
 	}
 
 	checkAnimation(anchor) {
+		this.placeRightParagraph(anchor);
+		this.clearTL(anchor);
 		this.placeRightText(anchor);
 	}
 
+	placeRightParagraph(anchor) {
+		let lang;
+
+		if (this.$lang === 'nl') {
+			lang = 'nl';
+		} else if (this.$lang === 'lim') {
+			lang = 'lim';
+		}
+
+		fetch(`/txt/text-${lang}-${anchor}.svg`)
+			.then((response) => {
+				return response.text();
+			})
+			.then((data) => {
+				if (Number(document.getElementsByClassName('m-story__text')[anchor-1].getAttribute('data-id')) === anchor) {
+					document.getElementsByClassName('m-story__text')[anchor-1].innerHTML = data;
+				}
+			});
+		setTimeout(() => {
+			this.runRightAnimation(anchor);
+		}, 500);
+	}
+
+	runRightAnimation(anchor) {
+
+		const textTimeLine = new TimelineMax();
+
+		if (document.getElementsByClassName('m-story__text')[anchor-1]) {
+			const getChildCount = document.getElementsByClassName('m-story__text')[anchor-1].childElementCount;
+	
+			for (let i = 0; i < getChildCount; i++) {
+				textTimeLine
+					.fromTo(document.getElementsByClassName(`m-story__text${anchor}-${i+1}`), 1, {
+						y: '-=50',
+						autoAlpha: 0
+					}, {
+						y: 0,
+						autoAlpha: 1	
+					}, '+=0.5');
+			}
+		}
+
+	}
+
 	placeRightText(anchor) {
-		let index = anchor - 1;
+		const index = anchor - 1;
 
 		if (this.$moreInfoTextPerSection[index]) {
 			this.$moreInfoTitle.innerText = this.$moreInfoTextPerSection[index].title;
