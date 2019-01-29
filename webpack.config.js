@@ -175,6 +175,10 @@ const config = {
 			{
 				from: './assets/img/',
 				to: './img/'
+			},
+			{
+				from: './assets/txt/',
+				to: './txt/'
 			}
 		]),
 		new webpack.optimize.CommonsChunkPlugin({
