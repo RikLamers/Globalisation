@@ -12,7 +12,7 @@ class Navigation {
 		this.$nav = this.$holder;
 		this.$navButton = document.getElementsByClassName('m-navigation__toggle')[0];
 		this.$navList = document.getElementsByClassName('m-navigation__list')[0];
-		this.$navItem = document.getElementsByClassName('m-navigation__item')[0];
+		this.$navItem = document.getElementsByClassName('m-navigation__item');
 		this.$mobileNavIsVisibile = false;
 
 	}
@@ -23,6 +23,12 @@ class Navigation {
 				e.preventDefault();
 				this.toggleNav();
 			});
+		}
+
+		if (this.$navItem) {
+			for (let i = 0; i < this.$navItem.length; i++) {
+				this.$navItem[i].addEventListener('click', this.toggleNav.bind(this));
+			}
 		}
 	}
 
