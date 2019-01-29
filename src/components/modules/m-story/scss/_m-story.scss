@@ -12,6 +12,7 @@ $module-name: 'story';
 
 .section {
     position: relative;
+    overflow: hidden;
 }
 
 .m-#{$module-name} {
@@ -22,13 +23,13 @@ $module-name: 'story';
         left: 0;
         right: 0;
         margin: 0 auto;
-        width: 100px;
         height: 100%;
+        max-width: 100%;
         z-index: 1;
 
         &--top {
-            bottom: -61px;
-            width: 94px;
+            height: 80%;
+            bottom: -3px;
         }
 
     }
@@ -77,6 +78,26 @@ $module-name: 'story';
         background-image: url('./assets/img/bg9.svg');
     }
 
+    &__text {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 5;
+        width: 95%;
+    }
+
+    &__next {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 1;
+    }
+
     &__moreinfo {
         position: absolute;
         top: 0;
@@ -103,6 +124,12 @@ $module-name: 'story';
             padding: 0 20px;
         }
 
+    }
+
+    svg {
+        path {
+            opacity: 0;
+        }
     }
 
 }
