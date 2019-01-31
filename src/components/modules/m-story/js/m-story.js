@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import fullpage from 'fullpage.js';
-import { TweenMax, TimelineMax } from 'gsap/all';
+import { TweenMax, TimelineMax, Power0 } from 'gsap/all';
 
 class Story {
 	constructor() {
@@ -8,7 +8,14 @@ class Story {
 	}
 
 	setup() {
-		this.$lang = 'lim';
+		// Get chosen language
+		this.$lang = window.location.search.split('=');
+		this.$lang = this.$lang[this.$lang.length - 1];
+
+		// Anchor link
+		this.$anchor;
+
+		// Text
 		this.$moreInfoTextPerSection = [
 			{
 				title: 'test',
@@ -29,6 +36,8 @@ class Story {
 				]
 			}
 		];
+
+		// Base elements m-story
 		this.$navButton = document.getElementsByClassName('m-navigation__toggle')[0];
 		this.$navItems = document.getElementsByClassName('m-navigation__item');
 		this.$holder = document.getElementsByClassName('m-story')[0];
@@ -39,6 +48,7 @@ class Story {
 		this.$moreInfoTitle = document.getElementsByClassName('m-story__moreinfo--title')[0];
 		this.$moreInfoQuote = document.getElementsByClassName('m-story__moreinfo--quote')[0];
 
+		// FullPage instance
 		this.$fullpageOptions = {
             licenseKey: '49DC2AC1-90EE4B99-807E2E82-35003862',
 			navigation: false,
@@ -47,14 +57,17 @@ class Story {
 			sectionsColor:['#ff5f45', '#0798ec', '#fc6c7c', 'tomato', '#ff5f45', '#0798ec', '#fc6c7c', 'tomato', 'pink'],
 			lazyLoading: true,
 			afterLoad: (origin, destination, direction) => {
+				this.$anchor = destination.anchor;
 				this.clearTL(destination.anchor);
 				TweenMax.killAll(false, true, false);
 				this.checkAnimation(Number(destination.anchor));
 			}
 		};
-
         this.$fullPageInstance = new fullpage('#m-story', this.$fullpageOptions);
 		this.$fullpageCell = document.getElementsByClassName('fp-tableCell');
+
+		// Flying object timeline
+		this.$objectAnimation = new TimelineMax();
 	}
 
 	eventListeners() {
@@ -118,6 +131,7 @@ class Story {
 	checkAnimation(anchor) {
 		this.placeRightParagraph(anchor);
 		this.clearTL(anchor);
+		this.placeObjectSVG(anchor);
 		this.placeRightText(anchor);
 	}
 
@@ -150,19 +164,69 @@ class Story {
 
 		if (document.getElementsByClassName('m-story__text')[anchor-1]) {
 			const getChildCount = document.getElementsByClassName('m-story__text')[anchor-1].childElementCount;
+
+			textTimeLine
+				.fromTo(document.getElementsByClassName(`m-story__text${anchor}-1`), 1, {
+					y: '-=50',
+					autoAlpha: 0
+				}, {
+					y: 0,
+					autoAlpha: 1,
+					onStart: () => {
+						console.log('play audio');
+					}	
+				}, '+=0.5');
 	
 			for (let i = 0; i < getChildCount; i++) {
-				textTimeLine
-					.fromTo(document.getElementsByClassName(`m-story__text${anchor}-${i+1}`), 1, {
-						y: '-=50',
-						autoAlpha: 0
-					}, {
-						y: 0,
-						autoAlpha: 1	
-					}, '+=0.5');
+				if (i + 1 !== 1) {
+					textTimeLine
+						.fromTo(document.getElementsByClassName(`m-story__text${anchor}-${i+1}`), 1, {
+							y: '-=50',
+							autoAlpha: 0
+						}, {
+							y: 0,
+							autoAlpha: 1	
+						}, '+=0.5');
+				}
 			}
+
 		}
 
+	}
+
+	placeObjectSVG(anchor) {
+		
+		fetch(`/img/object${anchor}.svg`)
+			.then((response) => {
+				return response.text();
+			})
+			.then((data) => {
+				document.getElementsByClassName('m-story__object--container')[anchor - 1].innerHTML += data;
+			});
+
+			
+
+			setTimeout(() => {
+				const svgEl = document.getElementsByClassName(`m-story__object${anchor}`)[0];
+				console.log(svgEl);
+				svgEl.setAttribute('viewBox', `0, 0, ${window.innerWidth}, ${(window.innerHeight / 2)}`);
+				const el = document.getElementsByClassName(`object${anchor}`)[0];
+				el.style.transform = 'scale(0.5)';
+
+				this.animateObject(el);
+			}, 150);
+
+	}
+
+	animateObject(element) {
+		this.$objectAnimation
+			.to(element, 5, {
+				x: Math.round(Math.random() * (window.innerWidth - element.getBoundingClientRect().width)),
+				y: Math.round(Math.random() * ((window.innerHeight / 2) - element.getBoundingClientRect().height)), 
+				ease:Power0.easeInOut,
+				onComplete: this.animateObject.bind(this),
+				onCompleteParams:[element]
+			});
 	}
 
 	placeRightText(anchor) {
