@@ -87,6 +87,11 @@ $module-name: 'story';
         margin: auto;
         z-index: 5;
         width: 95%;
+
+        path {
+            opacity: 0;
+        }
+
     }
 
     &__next {
@@ -113,43 +118,49 @@ $module-name: 'story';
 
     }
 
-    &__moreinfo {
-        position: absolute;
-        top: 0;
-        right: -100vw;
-        width: 100vw;
-        height: 100vh;
-        background-color: black;
-        z-index: 1;
-        transition: all 300ms ease-in-out;
-        color: white;
-
-        @media (min-width: breakpoint-min(md)) {
-            width: 33vw;
-            right: -33vw;
-        }
-
-        &.active {
-            right: 0;
-        }
-
-        &--content {
-            overflow-y: scroll;
-            height: 100%;
-            padding: 0 20px;
-        }
-
+    .object {
+        opacity: 0;
     }
 
-    svg {
-        path {
-            opacity: 0;
-        }
+}
 
-        .object {
-            opacity: 1;
-        }
+.m-#{$module-name}__moreinfo {
+    position: fixed;
+    top: 0;
+    right: -100vw;
+    width: 100vw;
+    height: 100%;
+    background-color: white;
+    z-index: 99;
+    transition: all 300ms ease-in-out;
+    // color: white;
 
+    @media (min-width: breakpoint-min(md)) {
+        width: 33vw;
+        right: -33vw;
+    }
+
+    &.is--active {
+        right: 0;
+    }
+
+    &--head {
+        height: 60px;
+        position: relative;
+        width: 100vw;
+        background-color: map-get($colors, white);
+    }
+
+    &--close {
+        position: absolute;
+        left: 0;
+    }
+
+    &--content {
+        overflow-y: scroll;
+        height: 100%;
+        padding: 0 20px;
+        padding-bottom: 100px;
     }
 
 }
