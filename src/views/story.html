@@ -33,7 +33,7 @@
 
 <body class="block-scroll">
 	<nav class="m-navigation">
-		<button class="o-hamburger o-hamburger--squeeze m-navigation__toggle float-left" type="button" aria-label="Toggle main navigation"
+		<button id="m-navigation__button" class="o-hamburger o-hamburger--squeeze m-navigation__toggle float-left" type="button" aria-label="Toggle main navigation"
 		aria-expanded="false">
 			<span class="o-hamburger-box">
 				<span class="o-hamburger-inner" />
@@ -70,14 +70,20 @@
 		</ul>
 	</nav>
 
-	<div id="m-story" class="m-story">
-		<!-- Info section -->
-		<div class="m-story__moreinfo">
-			<div class="m-story__moreinfo--content">
-				<h2 class="m-story__moreinfo--title"></h2>
-				<blockquote class="m-story__moreinfo--quote"></blockquote>
-			</div>
+	<!-- Info section -->
+	<div class="m-story__moreinfo">
+		<div class="m-story__moreinfo--head">
+			<button id="m-story__moreinfo--close" class="m-story__moreinfo--close o-hamburger o-hamburger--squeeze m-navigation__toggle float-left is--active" type="button" aria-label="Toggle main navigation"
+			aria-expanded="false">
+				<span class="o-hamburger-box">
+					<span class="o-hamburger-inner" />
+				</span>
+			</button>
 		</div>
+		<div class="m-story__moreinfo--content"></div>
+	</div>
+
+	<div id="m-story" class="m-story">
 
 		<!-- Paal 1 -->
 		<div id="paal1" class="section">
@@ -93,6 +99,7 @@
 
 		<!-- Paal 2 -->
 		<div id="paal2" class="section">
+			<div class="m-story__object--container"></div>
 			<!-- text SVG -->
 			<svg class="m-story__text" data-id="2" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 472.8 533.6" style="enable-background:new 0 0 472.8 533.6;" xml:space="preserve"></svg>
 			<div data-number="bg2" class="m-story__bg"></div>
@@ -101,6 +108,7 @@
 
 		<!-- Paal 3 -->
 		<div id="paal3" class="section">
+			<div class="m-story__object--container"></div>
 			<!-- text SVG -->
 			<svg class="m-story__text" data-id="3" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 472.8 533.6" style="enable-background:new 0 0 472.8 533.6;" xml:space="preserve"></svg>
 			<div data-number="bg3" class="m-story__bg"></div>
@@ -109,6 +117,7 @@
 
 		<!-- Paal 4 -->
 		<div id="paal4" class="section">
+			<div class="m-story__object--container"></div>
 			<!-- text SVG -->
 			<svg class="m-story__text" data-id="4" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 472.8 533.6" style="enable-background:new 0 0 472.8 533.6;" xml:space="preserve"></svg>
 			<div data-number="bg4" class="m-story__bg"></div>
@@ -117,6 +126,7 @@
 
 		<!-- Paal 5 -->
 		<div id="paal5" class="section">
+			<div class="m-story__object--container"></div>
 			<!-- text SVG -->
 			<svg class="m-story__text" data-id="5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 472.8 533.6" style="enable-background:new 0 0 472.8 533.6;" xml:space="preserve"></svg>
 			<div data-number="bg5" class="m-story__bg"></div>
@@ -125,6 +135,7 @@
 
 		<!-- Paal 6 -->
 		<div id="paal6" class="section">
+			<div class="m-story__object--container"></div>
 			<!-- text SVG -->
 			<svg class="m-story__text" data-id="6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 472.8 533.6" style="enable-background:new 0 0 472.8 533.6;" xml:space="preserve"></svg>
 			<div data-number="bg6" class="m-story__bg"></div>
@@ -133,6 +144,7 @@
 
 		<!-- Paal 7 -->
 		<div id="paal7" class="section">
+			<div class="m-story__object--container"></div>
 			<!-- text SVG -->
 			<svg class="m-story__text" data-id="7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 472.8 533.6" style="enable-background:new 0 0 472.8 533.6;" xml:space="preserve"></svg>
 			<div data-number="bg7" class="m-story__bg"></div>
@@ -141,6 +153,7 @@
 
 		<!-- Paal 8 -->
 		<div id="paal8" class="section">
+			<div class="m-story__object--container"></div>
 			<!-- text SVG -->
 			<svg class="m-story__text" data-id="8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 472.8 533.6" style="enable-background:new 0 0 472.8 533.6;" xml:space="preserve"></svg>
 			<div data-number="bg8" class="m-story__bg"></div>
@@ -149,6 +162,7 @@
 
 		<!-- Paal 9 -->
 		<div id="paal9" class="section">
+			<div class="m-story__object--container"></div>
 			<!-- text SVG -->
 			<svg class="m-story__text" data-id="9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 472.8 533.6" style="enable-background:new 0 0 472.8 533.6;" xml:space="preserve"></svg>
 			<div data-number="bg9" class="m-story__bg"></div>
