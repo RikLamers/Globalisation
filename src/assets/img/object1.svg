@@ -1,10 +1,31 @@
-<svg class="m-story__object m-story__object1" version="1.1" id="Laag_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-viewBox="0 0 228.64 69.85" style="enable-background:new 0 0 228.64 69.85;" xml:space="preserve">
+<svg class="m-story__object m-story__object1" version="1.1" id="Laag_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 239.2 135.86" style="enable-background:new 0 0 239.2 135.86;" xml:space="preserve">
 <style type="text/css">
-	.st31{fill:#E7E6E6;}
+	.st8{fill:#E7E6E6;}
+	.st9{fill:url(#SVGID_1_);}
+	.st10{fill:#FFFFFF;}
+	.st11{fill-rule:evenodd;clip-rule:evenodd;}
+	.st12{fill:#F2F2F2;}
+	.st13{fill:#DFDFDF;}
+	.object__plus1{opacity: 0;}
 </style>
-<g>
-	<path class="st31 object object1" d="M228.64,70.14H0c6.07-17.84,20.14-33.77,35.99-36.9s32.87,4.25,43.39,18.81 c10.67-23.09,29.24-40.84,50.15-48.3c9.73-3.48,19.97-4.73,30.15-3.22C191.69,5.23,220.3,32.76,228.64,70.14z"/>
-    <!-- <!-- <rect class="object object1" width="50" height="50"></rect> --> -->
+<g class="object object1">
+	<g>
+		<g>
+			<g>
+				<path class="object__object1 st8" d="M228.64,135.86H0c6.07-17.84,20.14-33.77,35.99-36.9s32.87,4.25,43.39,18.81
+					c10.67-23.09,29.24-40.84,50.15-48.3c9.73-3.48,19.97-4.73,30.15-3.22C191.69,70.95,220.3,98.48,228.64,135.86z"/>
+			</g>
+		</g>
+	</g>
+	<g class="object__plus1">
+		<radialGradient id="SVGID_1_" cx="195.5839" cy="43.6201" r="43.6201" gradientUnits="userSpaceOnUse">
+			<stop  offset="0" style="stop-color:#000000"/>
+			<stop  offset="0.9987" style="stop-color:#000000;stop-opacity:0"/>
+		</radialGradient>
+		<circle class="st9" cx="195.58" cy="43.62" r="43.62"/>
+		<circle class="st10" cx="195.58" cy="43.62" r="36.99"/>
+		<polygon class="st11" points="193.73,30.67 193.73,41.77 182.64,41.77 182.64,45.47 193.73,45.47 193.73,56.57 197.43,56.57 
+			197.43,45.47 208.53,45.47 208.53,41.77 197.43,41.77 197.43,30.67 		"/>
+	</g>
 </g>
 </svg>

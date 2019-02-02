@@ -1,0 +1,72 @@
+<svg class="m-story__object m-story__object7" version="1.1" id="Laag_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 239.46 135.86" style="enable-background:new 0 0 239.46 135.86;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#3D4B59;}
+	.st1{fill:#1D2B39;}
+	.st2{fill:#4E5B69;}
+	.st3{fill:#2C3A49;}
+	.st4{fill:#9C6D4F;}
+	.st5{fill:#7E4E2F;}
+	.st6{fill:#8C5D3F;}
+	.st7{fill:#6E3D21;}
+	.st8{fill:#E7E6E6;}
+	.st9{fill:url(#SVGID_1_);}
+	.st10{fill:#FFFFFF;}
+	.st11{fill-rule:evenodd;clip-rule:evenodd;}
+	.st12{fill:#F2F2F2;}
+	.st13{fill:#DFDFDF;}
+	.st14{fill:#32358C;}
+	.st15{fill:url(#SVGID_2_);}
+	.st16{fill-rule:evenodd;clip-rule:evenodd;fill:#234D64;}
+	.st17{fill-rule:evenodd;clip-rule:evenodd;fill:#F8AB18;}
+	.st18{fill-rule:evenodd;clip-rule:evenodd;fill:#398AB1;}
+	.st19{fill:#234D64;}
+	.st20{fill-rule:evenodd;clip-rule:evenodd;fill:#1B1B1B;}
+	.st21{fill-rule:evenodd;clip-rule:evenodd;fill:#020203;}
+	.st22{fill:url(#SVGID_3_);}
+	.st23{fill-rule:evenodd;clip-rule:evenodd;fill:#B6181D;}
+	.st24{fill-rule:evenodd;clip-rule:evenodd;fill:#B4B4B4;}
+	.st25{fill-rule:evenodd;clip-rule:evenodd;fill:#CDA442;}
+	.st26{fill:url(#SVGID_4_);}
+	.st27{fill:#9B9B9A;}
+	.st28{fill:#B579B2;}
+	.st29{fill:#AB6EAC;}
+	.st30{fill:#F8AB18;}
+	.st31{fill:#F28C00;}
+	.st32{fill:#62B22F;}
+	.st33{fill:#54AF32;}
+	.st34{fill:#57C0D3;}
+	.st35{fill:#36B2BB;}
+	.st36{fill:#E83E5D;}
+	.st37{fill:#E72E55;}
+	.st38{fill:url(#SVGID_5_);}
+	.st39{fill:#F7E700;}
+	.st40{fill:url(#SVGID_6_);}
+	.st41{fill:url(#SVGID_7_);}
+	.st42{fill:url(#SVGID_8_);}
+	.st43{fill:#4D4230;}
+	.st44{fill:#5F4A2F;}
+	.st45{fill:url(#SVGID_9_);}
+	.st46{fill:url(#SVGID_10_);}
+</style>
+<g class="object object7">
+	<g class="object__object7">
+		<g>
+			<g>
+				<path class="st8" d="M228.64,135.86H0c6.07-17.84,20.14-33.77,35.99-36.9s32.87,4.25,43.39,18.81
+					c10.67-23.09,29.24-40.84,50.15-48.3c9.73-3.48,19.97-4.73,30.15-3.22C191.69,70.95,220.3,98.48,228.64,135.86z"/>
+			</g>
+		</g>
+	</g>
+	<g class="object__plus7">
+		<radialGradient id="SVGID_1_" cx="195.5839" cy="43.6201" r="43.6201" gradientUnits="userSpaceOnUse">
+			<stop  offset="0" style="stop-color:#000000"/>
+			<stop  offset="0.9987" style="stop-color:#000000;stop-opacity:0"/>
+		</radialGradient>
+		<circle class="st9" cx="195.58" cy="43.62" r="43.62"/>
+		<circle class="st10" cx="195.58" cy="43.62" r="36.99"/>
+		<polygon class="st11" points="193.73,30.67 193.73,41.77 182.64,41.77 182.64,45.47 193.73,45.47 193.73,56.57 197.43,56.57 
+			197.43,45.47 208.53,45.47 208.53,41.77 197.43,41.77 197.43,30.67 		"/>
+	</g>
+</g>
+</svg>
