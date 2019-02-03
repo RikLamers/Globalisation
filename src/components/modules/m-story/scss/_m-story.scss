@@ -32,6 +32,14 @@ $module-name: 'story';
             bottom: -3px;
         }
 
+        &--bottom {
+            transform: scale(1.2,1.5);
+
+            @media (min-width: breakpoint-min(sm)) {
+                transform: scale(1,1);
+            }
+        }
+
     }
 
     &__init {
@@ -42,9 +50,11 @@ $module-name: 'story';
         height: 100vh;
         width: 100vw;
         z-index: 100;
+        text-align: center;
 
         &__dialog {
             width: 90%;
+            max-width: 500px;
             padding: 20px;
             background-color: map-get($colors, white);
             position: absolute;
@@ -54,10 +64,10 @@ $module-name: 'story';
         }
 
         &__btn { 
-            border: 1px solid black;
             border-radius: 25px;
             display: block;
             margin: 0 auto;
+            box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
         }
 
     }
@@ -116,6 +126,10 @@ $module-name: 'story';
         z-index: 5;
         width: 95%;
 
+        @media (min-width: breakpoint-min(md)) {
+            height: 80%;
+        }
+
         path {
             opacity: 0;
         }
@@ -129,6 +143,26 @@ $module-name: 'story';
         right: 0;
         margin: 0 auto;
         z-index: 1;
+    }
+
+    &__title {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9;
+        text-transform: uppercase;
+        font-family: $font-family--secondary;
+        width: 100vw;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    &__progression {
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        font-family: $font-family--secondary;
+        z-index: 9;
     }
 
     &__object {
@@ -166,11 +200,6 @@ $module-name: 'story';
         color: map-get($colors, black);
     }
 
-    @media (min-width: breakpoint-min(md)) {
-        width: 33vw;
-        right: -33vw;
-    }
-
     &.is--active {
         right: 0;
     }
@@ -192,6 +221,17 @@ $module-name: 'story';
         height: 100%;
         padding: 0 20px;
         padding-bottom: 100px;
+
+        @media (min-width: breakpoint-min(sm)) {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: breakpoint-min(md)) {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
     }
 
 }
