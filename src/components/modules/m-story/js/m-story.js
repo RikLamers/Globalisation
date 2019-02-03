@@ -12,6 +12,11 @@ class Story {
 		this.$holder = document.getElementsByClassName('m-story')[0];
 		this.$body = document.getElementsByTagName('body');
 
+		// Init bool
+		this.$initBool = false;
+		this.$init = document.getElementsByClassName('m-story__init')[0];
+		this.$initBtn = document.getElementsByClassName('m-story__init__btn')[0];
+
 		// Get chosen language
 		this.$lang = window.location.search.split('=');
 		this.$lang = this.$lang[this.$lang.length - 1];
@@ -342,9 +347,19 @@ class Story {
 				this.clearTL(destination.anchor);
 				TweenMax.killAll(false, true, false);
 				if (origin) {
+					this.stopVoiceOver();
 					this.removeSVGObject(origin.anchor);
 				}
 				this.buildAll(Number(destination.anchor));
+				if (!this.$initBool) {
+					this.$initBtn.addEventListener('click', (e) => {
+						e.preventDefault();
+						this.$audioMusic.play();
+						this.$audioVoice.play();
+						this.$initBool = true;
+						this.$init.remove();
+					});
+				}
 			}
 		};
         this.$fullPageInstance = new fullpage('#m-story', this.$fullpageOptions);
@@ -352,6 +367,13 @@ class Story {
 
 		// Flying object timeline
 		this.$objectAnimation;
+
+		// Audio elements
+		this.$audioVoice = document.getElementsByClassName('m-story__voice')[0];
+		this.$audioMusic = document.getElementsByClassName('m-story__music')[0];
+
+		// Pole animation timeline
+		this.$poleAnimationTimeline;
 	}
 
 	// Event listeners
@@ -396,7 +418,7 @@ class Story {
 
 	// Handle nav-item kliks
 	handleRoute(e) {
-		this.$fullPageInstance = new fullpage('#m-story', this.$fullpageOptions);
+		this.rebuildAll(this.$anchor);
 		if ($(e.target).attr('data-menuanchor')) {
 			window.location.href = `/#${$(e.target).attr('data-menuanchor')}`;
 		}
@@ -404,18 +426,42 @@ class Story {
 
 	// Set text to opacity 0 initial
 	clearTL(anchor) {
-		const clearTimeLine = new TimelineMax();
+		const clearTextTimeline = new TimelineMax();
 
 			if (document.getElementsByClassName('m-story__text')[anchor-1]) {
 				const getChildCount = document.getElementsByClassName('m-story__text')[anchor-1].childElementCount;
 		
 				for (let i = 0; i < getChildCount; i++) {
-					clearTimeLine
+					clearTextTimeline
 						.set(document.getElementsByClassName(`m-story__text${anchor}-${i+1}`), {
 							autoAlpha: 0
 						});
 				}
 			}
+
+		const clearPoletimeline = new TimelineMax();
+		if (anchor === 7|| anchor === 8 || anchor === 9) {
+			
+			const elems = document.getElementsByClassName('m-story__paal');
+			let el;
+			for (let i = 0; i < elems.length; i++) {
+				if (elems[i].src === `${window.location.origin}/img/paal8.svg`) {
+					el = elems[i];
+				}
+			}
+
+			if (el.getAttribute('style')) {
+				el.removeAttribute('style');
+				clearTextTimeline
+					.set(el, {
+						scaleY: 1,
+						x: 0,
+						rotation: 0,
+						transformOrigin: '50%, 100%'
+					});
+			}
+				
+		}
 	}
 
 	// Build all main (fullpage) elementes
@@ -432,7 +478,6 @@ class Story {
 			display: 'block'
 		});
 		this.newFullpageInstance();
-		// this.fetchObjectSvg(anchor);
 	}
 
 	// make new fullpage instance
@@ -479,9 +524,8 @@ class Story {
 				}, {
 					y: 0,
 					autoAlpha: 1,
-					onStart: () => {
-						console.log('play audio');
-					}	
+					onStart: this.getRightAudio.bind(this),
+					onStartParams:[anchor]
 				}, '+=0.5');
 	
 			for (let i = 0; i < getChildCount; i++) {
@@ -558,6 +602,83 @@ class Story {
 			});
 	}
 
+	getPole() {
+		const poles = document.getElementsByClassName('m-story__paal');
+		let pole;
+
+		for (let i = 0; i < poles.length; i++) {
+			if (poles[i].src === `${window.location.origin}/img/paal8.svg`) {
+				pole = poles[i];
+			}
+		}
+
+		const VOInterval = setInterval(() => {
+			if (this.$audioVoice.currentTime > 17) {
+				this.animatePole(pole);
+				stopInterval();
+			}
+		}, 500);
+
+		const stopInterval = () => {
+			clearInterval(VOInterval);
+		};
+
+	}
+
+	animatePole(el) {
+		this.$poleAnimationTimeline = new TimelineMax();
+		this.$poleAnimationTimeline
+			// 1
+			.to(el, 0.3, {
+				x: 5
+			})
+			.to(el, 0.3, {
+				x: -5
+			})
+			.to(el, 0.3, {
+				x: 0
+			})
+			// 2
+			.to(el, 0.3, {
+				x: 5
+			})
+			.to(el, 0.3, {
+				x: -5
+			})
+			.to(el, 0.3, {
+				x: 0
+			})
+			// 3
+			.to(el, 0.3, {
+				x: 5
+			})
+			.to(el, 0.3, {
+				x: -5
+			})
+			.to(el, 0.3, {
+				x: 0
+			})
+			// 4
+			.to(el, 0.3, {
+				x: 5,
+				scaleY: 1.1
+			})
+			.to(el, 0.3, {
+				x: -5
+			})
+			.to(el, 0.3, {
+				x: 0
+			})
+			.to(el, 6, {
+				transformOrigin:'100% 100%',
+				rotation: -60
+			})
+			.to(el, 2, {
+				transformOrigin:'100% 100%',
+				rotation: -90
+			},'-=1');
+	}
+
 	removeText(anchor) {
 		if (this.$moreInfoContent.children.length > 0) {
 			for (let i = this.$moreInfoContent.children.length; i >= 0; i--) {
@@ -598,6 +719,61 @@ class Story {
 		}
 	}
 
+	// Place right audio paths + play
+	getRightAudio(anchor) {
+		this.$audioVoice.src = `/audio/voiceover/${this.$lang}/${anchor}.mp3`;
+		setTimeout(() => {
+			if (this.$initBool) {
+				this.$audioVoice.play();
+			}
+		}, 50);
+
+		if (anchor === 8) {
+			this.$audioMusic.src = '/audio/music/8.mp3';
+			setTimeout(() => {
+				if (this.$initBool) {
+					this.$audioMusic.play();
+				}
+			}, 50);
+			this.getPole();
+		} else if (anchor === 9) {
+			this.$audioMusic.src = '/audio/music/9.mp3';
+			setTimeout(() => {
+				if (this.$initBool) {
+					this.$audioMusic.play();
+				}
+			}, 50);
+		} else if ((anchor !== 8 || anchor !== 9) && this.$audioMusic.src !== `${window.location.origin}/audio/music/1.mp3`) {
+			this.$audioMusic.src = '/audio/music/1.mp3';
+			setTimeout(() => {
+				if (this.$initBool) {
+					this.$audioMusic.play();
+				}
+			}, 50);
+		}
+		setTimeout(() => {
+			if (this.$audioMusic.currentTime === 0 && this.$initBool) {
+				this.$audioMusic.play();
+			}
+		}, 1000);
+	}
+
+	// Stop audio on destroy
+	stopAudio() {
+		this.$audioMusic.pause();
+		this.$audioMusic.currentTime = '0';
+		this.$audioMusic.src = '/';
+		this.$audioVoice.pause();
+		this.$audioVoice.currentTime = '0';
+		this.$audioVoice.src = '/';
+	}
+
+	// Stop audio voiceover on change slide
+	stopVoiceOver() {
+		this.$audioVoice.pause();
+		this.$audioVoice.currentTime = '0';
+	}
+
 	// Remove objects
 	removeSVGObject(anchor) {
 		const allObj = document.getElementsByClassName('m-story__object');
@@ -617,6 +793,7 @@ class Story {
 		$('#m-story').css({
 			display: 'none'
 		});
+		this.stopAudio();
 		this.destroyFullpageInstance();
 		this.removeSVGObject();
 		this.$objectAnimation = null;
