@@ -26,7 +26,6 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="../img/favicons/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="../img/favicons/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="../img/favicons/favicon-16x16.png">
-	<link rel="manifest" href="../img/favicons/manifest.json">
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="../img/favicons/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
@@ -34,16 +33,30 @@
 </head>
 
 <body class="block-scroll">
-	<div id="l-wrapper">
 
-		<main id="l-content">
-			<div class="l-container">
-				<a class="o-btn o-btn--primary o-btn__lang" href="/story?lang=nl">Nederlands</a>
-				<a class="o-btn o-btn--primary o-btn__lang" href="/story?lang=lim">Limburgs</a>
+	<h1 class="m-home__title">De paal</h1>
+	<div id="m-home" class="m-home">
+		<div id="home1" class="section">
+			<div class="m-home__bg"></div>
+			<img class="m-home__paal m-story__paal m-story__paal--top" src="/img/paal1.svg" />
+			<div class="m-home__overlay"></div>
+			<div class="m-home__content">
+				<blockquote>“Jekerein is hie geliek, van jonk tot oud. Veer helpe mekaar in gooje en slechte tieje.”</blockquote>
+				<p>Tradities definiëren cultuur als geen ander, de paal ziet dat als geen ander. Hij ziet álles. Ontdek de schutterij en zijn gebruiken, pieken en dalen en zie ook alles. Álles</p>
 			</div>
-		</main>
-
+			<a href="#home-2">
+				<img class="m-home__next" src="/img/next.svg" />
+			</a>
+		</div>
+		<div id="home2" class="section">
+			<div class="m-home__choice">
+				<p>Start het verhaal door een keuze te maken uit de Nederlandstalige of Limburgse versie.</p>
+				<a class="o-btn o-btn--primary o-btn__lang" href="/story?lang=nl"><img src="/img/nl.svg" /> Nederlands</a>
+				<a class="o-btn o-btn--primary o-btn__lang" href="/story?lang=lim"><img src="/img/lim.svg" /> Limburgs</a>
+			</div>
+		</div>
 	</div>
+
 	<script type="text/javascript" src="./js/vendors.bundle.js"></script>
 	<script type="text/javascript" src="./js/app.bundle.js"></script>
 </body>
