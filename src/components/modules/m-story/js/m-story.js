@@ -62,6 +62,11 @@ class Story {
 						tag: 'p',
 						content: 'De schutterij heeft dus een totaal andere functie gekregen. Zij hoeven niet langer de steden of dorpen waar zij zich bevinden te beschermen, maar zijn wél belangrijk voor het behoud van historische tradities. Schutterijen zijn daarmee tegenwoordig folkloristische verenigingen geworden; verenigingen die de geschiedenis van het volk in stand proberen te houden.',
 						att: []
+					},
+					{
+						tag: 'img',
+						content: '/img/extrainfo-image-1.png',
+						att: []
 					}
 				]
 			},
@@ -96,6 +101,11 @@ class Story {
 						tag: 'p',
 						content: 'Naast koning, kan men ook keizer worden. Dit gebeurt wanneer men driemaal achter elkaar koning is geworden. Omdat dit erg moeilijk is, zijn er veel schutterijen die nog nooit een keizer hebben gehad. Om de kans te vergroten dat er een (nieuwe) keizer komt worden de regels daarom soms aangepast. Men kan dan bijvoorbeeld keizer worden door drie keer in zijn leven koning te worden, of krijgt extra schoten om de kans te vergroten dat hij het laatste stuk van de vogel zal wegschieten. Dit verschilt echter per schutterij en er zijn dus ook geen vaste regels omtrent het worden van keizer. Als het echter eenmaal lukt om keizer te worden, dan behoud je deze titel ook voor het leven óf totdat er een nieuwe keizer komt en de huidige bereid is afstand te doen van zijn titel.',
 						att: []
+					},
+					{
+						tag: 'img',
+						content: '/img/extrainfo-image-2.png',
+						att: []
 					}
 				]
 			},
@@ -124,6 +134,11 @@ class Story {
 					{
 						tag: 'p',
 						content: `De leden van de schutterijen worden bij die grotere schutterswedstrijden ingedeeld in ploegen van 6 personen. In de eerste ronde dienen er 3 x 3 bolletjes afgeschoten te worden. Als niemand gemist heeft in een ploeg, mag je door naar de volgende ronde. Vervolgens wordt er in de meeste gevallen doorgeschoten totdat er gemist wordt. In schutterstermen noemt men dit ‘kavelen’.`,
+						att: []
+					},
+					{
+						tag: 'img',
+						content: '/img/extrainfo-image-3.png',
 						att: []
 					}
 				]
@@ -154,6 +169,11 @@ class Story {
 						tag: 'ul',
 						content: '<li>Bordjesdrager: meestal een kind dat een bordje vasthoudt met daarop de naam van de schutterij.</li><li>Bielemannen: mannen met bijl en baard die vroeger de weg vrij moesten maken voor de overige manschappen.</li><li>Tambour-maître: heeft de leiding over het trommelkorps.</li><li>Het trommelkorps: de hele stoet marcheert op de muziek van het trommelkorps. Deze bestaat uit verschillende trommels, maar in de meeste gevallen zijn er ook schutters bij die onder andere de klaroen en hoorn bespelen.</li><li>Marketentsters: vrouwelijke leden die vroeger voor de manschappen zorgden. In de stoet dragen de marketentsters een mand met daarin meestal een brood en een tonnetje jenever.</li><li>Vlaggendrager: draagt de historische vlag van de schutterij.</li><li>Koning en koningin: de winnaar van het koningsschieten en zijn koningin.</li><li>Keizer en keizerin (als deze er is): de drievoudig winnaar van het koningsschieten en zijn keizerin.</li><li>Officieren: hebben vaak een functie in het bestuur, zijn daarom belangrijk en dragen een sabel.</li><li>Commandant: stelt de manschappen op en zorgt ervoor dat iedereen in pas loopt.</li><li>Manschappen: De manschappen marcheren achteraan de stoet. Zij dragen een geweer over de schouder en nemen meestal deel in de schietwedstrijden.</li>',
 						att: []
+					},
+					{
+						tag: 'img',
+						content: '/img/extrainfo-image-4.png',
+						att: []
 					}
 				]
 			},
@@ -177,6 +197,11 @@ class Story {
 					{
 						tag: 'p',
 						content: 'De buksen die gebruikt worden voor schietwedstrijden zijn zware geweren van wel bijna twee meter lang. Dit geweer weegt ook nog eens zo’n 15 kilogram. Hoewel dit nog wel eens kan verschillen is op 9 meter van de schietboom met daarop de vogel of bolletjes een speciale aanlegpaal, ook wel schutsboom genoemd, opgesteld. De schutter kan zijn buks op deze paal laten steunen en zo een stabiele houding aannemen. In die houding kan hij niet alleen de terugslag opvangen, maar is het ook mogelijk langdurig op de bolletjes of de vogel te mikken. Dat laatste is vooral belangrijk omdat het, in het geval van de bolletjes, niet ongebruikelijk is dat iedere schutter keer op keer raak blijft schieten.',
+						att: []
+					},
+					{
+						tag: 'img',
+						content: '/img/extrainfo-image-5.png',
 						att: []
 					}
 				]
@@ -217,6 +242,11 @@ class Story {
 						tag: 'p',
 						content: 'Om en om mogen de manschappen schieten volgens de volgorde die tijdens de loting is bepaald. Iedereen schiet met hetzelfde geweer, een 2 meter lange buks. Als de vogel van de paal geschoten is, is de nieuwe koning bekend die als eerste gefeliciteerd moet worden door de oud-koning die hem de zilveren ketting omhangt als symbool van het nieuwe koningschap. De nieuwe koning legt daarna de koningseed af waarin hij onder andere zweert het koningschap goed in te vullen. Tenslotte nodigt hij zijn schutterij, familie en de aanwezigen uit om zijn overwinning te vieren.',
 						att: []
+					},
+					{
+						tag: 'img',
+						content: '/img/extrainfo-image-6.png',
+						att: []
 					}
 				]
 			},
@@ -240,6 +270,11 @@ class Story {
 					{
 						tag: 'p',
 						content: 'Schutterijen hebben echter een nieuwe functie gekregen. Zij vertellen en behouden niet alleen een deel van onze geschiedenis en de tradities die daarbij kwamen kijken, maar spelen op veel plekken ook een grote rol in het verenigings- en daarmee ook het dorpsleven. Schutterijen geven mensen de mogelijkheid ergens bij te horen in een tijd waarin alles steeds individueler lijkt te worden, mensen zich eenzaam voelen en vervreemde van de samenleving. Mensen neigen terug naar een identiteit waarbij broederschap en bouwen en vertrouwen op en met elkaar nog hoog in het vaandel staan en kunnen juist datgene vinden in een schutterij.',
+						att: []
+					},
+					{
+						tag: 'img',
+						content: '/img/extrainfo-image-7.png',
 						att: []
 					}
 				]
@@ -279,6 +314,11 @@ class Story {
 					{
 						tag: 'p',
 						content: 'Schutterijen worden door deze problemen dus geconfronteerd met een tweestrijd. Zij moeten veranderen en moderniseren om leden te krijgen, maar kunnen dat aan de andere kant niet (te ver) doorvoeren als ze hun tradities in ere willen houden. Hoe maak je iets aantrekkelijk voor de jongere generatie zonder tradities te verliezen of te veel te veranderen?',
+						att: []
+					},
+					{
+						tag: 'img',
+						content: '/img/extrainfo-image-8.png',
 						att: []
 					}
 				]
@@ -323,6 +363,11 @@ class Story {
 					{
 						tag: 'p',
 						content: 'De ongekende populariteit van het OLS maakt duidelijk dat er wel degelijk een toekomst is voor de schutterij. En hoewel dit geen vaste of blijvende oplossing biedt voor de problemen waarmee ze kampen is het op z’n minst een bron van inspiratie en motivatie. De huidige maatschappij kan hoe dan ook een voorbeeld nemen aan de schutterij met zijn daden en doen. De schutterij; een eeuwenoude traditie die gekoesterd moet worden.',
+						att: []
+					},
+					{
+						tag: 'img',
+						content: '/img/extrainfo-image-9.png',
 						att: []
 					}
 				]
@@ -728,7 +773,13 @@ class Story {
 			}
 		}, 50);
 
-		if (anchor === 8) {
+		if (anchor === 7) {
+			setTimeout(() => {
+				this.$audioMusic.removeAttribute('src');
+				this.$audioMusic.pause();
+				this.$audioMusic.currentTime = 0.1;
+			}, 50);
+		} else if (anchor === 8) {
 			this.$audioMusic.src = '/audio/music/8.mp3';
 			setTimeout(() => {
 				if (this.$initBool) {
@@ -743,7 +794,7 @@ class Story {
 					this.$audioMusic.play();
 				}
 			}, 50);
-		} else if ((anchor !== 8 || anchor !== 9) && this.$audioMusic.src !== `${window.location.origin}/audio/music/1.mp3`) {
+		} else if ((anchor !== 7 ||anchor !== 8 || anchor !== 9) && this.$audioMusic.src !== `${window.location.origin}/audio/music/1.mp3`) {
 			this.$audioMusic.src = '/audio/music/1.mp3';
 			setTimeout(() => {
 				if (this.$initBool) {
