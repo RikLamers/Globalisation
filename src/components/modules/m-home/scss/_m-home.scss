@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+/* =============================================================================
+	CONFIG
+============================================================================= */
+
+$module-name: 'home';
+
+/* =============================================================================
+	BASE
+============================================================================= */
+
+.m-#{$module-name} {
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100vh;
+        width: 100vw;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+		background-size: cover;
+		background-image: url('./assets/img/bg1.svg');
+	}
+
+	&__paal {
+		z-index: 0!important;
+	}
+
+	&__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(255, 255, 255, .7);
+	}
+
+	&__title {
+		margin: 0;
+		position: fixed;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+		padding-top: 30px;
+		z-index: 1;
+		color: black;
+	}
+
+	&__content {
+		width: 100vw;
+		text-align: center;
+		font-family: $font-family--secondary;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+
+		h1 {
+			color: map-get($colors, black);
+			margin: 0;
+			padding-top: 30px;
+		}
+
+		p {
+			max-width: 300px;
+			margin: 0 auto;
+
+			@media (min-width: breakpoint-min(sm)) {
+				max-width: 450px;
+			}
+
+			@media (min-width: breakpoint-min(md)) {
+				max-width: 600px;
+			}
+		}
+
+		
+	}
+	
+	&__next {
+		position: absolute;
+		bottom: 0;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		text-align: center;
+	}
+
+	&__choice {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		text-align: center;
+		height: 100vh;
+
+		p {
+			max-width: 300px;
+			position: relative;
+			left: 0;
+			right: 0;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 30px;
+		}
+		
+		a {
+			box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+			border-radius: 25px;
+			display: block;
+			margin: 0 auto;
+			max-width: 200px;
+			margin-bottom: 30px;
+			width: 100%;
+			font-family: $font-family--secondary;
+
+			img {
+				margin: 0;
+				margin-top: -3px;
+			}
+
+		}
+
+	}
+
+}
