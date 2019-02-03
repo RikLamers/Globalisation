@@ -4,7 +4,8 @@
 CONFIG
 ============================================================================= */
 
-$font-family--primary: $opensans !global;
+$font-family--primary: $butler !global;
+$font-family--secondary: $butler--black !global;
 
 $marked-bg-color: #fcf899;
 $content-spacing: 3rem;
@@ -43,7 +44,7 @@ h6 {
 	font-weight: normal;
 	//font-weight: bold;
 	word-wrap: break-word;
-	font-family: $font-family--primary;
+	font-family: $font-family--secondary;
 	text-transform: uppercase;
 	margin: $content-spacing 0 $content-spacing--small 0;
 	color: map-get($colors, primary);
@@ -181,6 +182,7 @@ em {
 }
 
 blockquote {
+	font-family: $font-family--secondary;
 	margin: 0;
 	padding: 30px 40px;
 	@include rem(20);
@@ -273,4 +275,8 @@ ol {
 	ol {
 		margin-bottom: 0;
 	}
+}
+
+button {
+	font-family: $font-family--secondary;
 }
