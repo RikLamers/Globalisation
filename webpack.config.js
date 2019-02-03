@@ -179,6 +179,10 @@ const config = {
 			{
 				from: './assets/txt/',
 				to: './txt/'
+			},
+			{
+				from: './assets/audio/',
+				to: './audio/'
 			}
 		]),
 		new webpack.optimize.CommonsChunkPlugin({
