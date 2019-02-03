@@ -17,7 +17,16 @@ $module-name: 'navigation';
 		position: fixed;
 		top: 0px;
 		left: 10px;
-		z-index: 9;
+		z-index: 11;
+	}
+
+	&__header {
+		width: 100vw;
+		height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background-color: map-get($colors, white);
 	}
 
 	&__list {
