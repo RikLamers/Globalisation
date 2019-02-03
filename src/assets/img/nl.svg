@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="14px" viewBox="0 0 18 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Nederlandvlag</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-15.6%" y="-20.8%" width="131.2%" height="141.7%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <polygon id="path-2" points="5.71428571e-05 0.00243333333 16 0.00243333333 16 3.99993333 5.71428571e-05 3.99993333"></polygon>
+        <polygon id="path-4" points="0 12 16 12 16 0 0 0"></polygon>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Button-Nederlandvlag" transform="translate(-27.000000, -15.000000)">
+            <g id="Nederlandvlag" filter="url(#filter-1)" transform="translate(28.000000, 16.000000)">
+                <g id="Group-3" transform="translate(0.000000, 8.000000)">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <g id="Clip-2"></g>
+                    <path d="M1.12334286,3.99993333 L14.8766286,3.99993333 C15.4970571,3.99993333 16.0000571,3.4131 16.0000571,2.68943333 L16.0000571,0.00243333333 L5.71428571e-05,0.00243333333 L5.71428571e-05,2.68943333 C5.71428571e-05,3.4131 0.502914286,3.99993333 1.12334286,3.99993333" id="Fill-1" fill="#2D558D" mask="url(#mask-3)"></path>
+                </g>
+                <mask id="mask-5" fill="white">
+                    <use xlink:href="#path-4"></use>
+                </mask>
+                <g id="Clip-5"></g>
+                <polygon id="Fill-4" fill="#FFFFFF" mask="url(#mask-5)" points="0 8 16 8 16 4 0 4"></polygon>
+                <path d="M0,4 L16,4 L16,1.31131957 C16,0.587033563 15.497,0 14.8767143,0 L1.12328571,0 C0.503,0 0,0.587033563 0,1.31131957 L0,4 Z" id="Fill-6" fill="#E1001A" mask="url(#mask-5)"></path>
+            </g>
+        </g>
+    </g>
+</svg>
