@@ -230,11 +230,6 @@ class Story {
 					},
 					{
 						tag: 'p',
-						content: 'Eerst verzamelen de leden van de schutterij zich in het schutterslokaal. Hierna marcheren zij in optocht, met het koningszilver en de vogel, naar het woonhuis van de koning waar deze wordt uitgenodigd om deel te nemen aan de optocht naar de kerk voor het bijwonen van de offermis. Na de Heilige Mis trekt men naar buiten en legt men een eed van trouw af aan het geestelijk gezag en vertrekt men terug naar het schutterslokaal voor een koffietafel.',
-						att: []
-					},
-					{
-						tag: 'p',
 						content: 'Voordat het koningsschieten begint wordt de schutsboom, ook wel aanlegpaal genoemd, ‘vrij gemaakt’ door er driemaal omheen te lopen. Om de schiet volgorde te bepalen vindt er hierna een loting plaats door lotnummers uit de hoed van de koning te trekken. De voormalige koning hangt dan zijn zilveren ketting op aan de schutsboom, en houdt een afscheidsrede. Hierna kan het schieten eindelijk van start gaan.',
 						att: []
 					},
