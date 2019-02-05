@@ -378,9 +378,9 @@ class Story {
 		this.$fullpageOptions = {
             licenseKey: '49DC2AC1-90EE4B99-807E2E82-35003862',
 			navigation: false,
-			anchors: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+			anchors: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
 			menu: '#m-navigation__list',
-			sectionsColor:['#ff5f45', '#0798ec', '#fc6c7c', 'tomato', '#ff5f45', '#0798ec', '#fc6c7c', 'tomato', 'pink'],
+			sectionsColor:['#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff'],
 			lazyLoading: true,
 			afterLoad: (origin, destination, direction) => {
 				this.$anchor = destination.anchor;
@@ -394,8 +394,12 @@ class Story {
 				if (!this.$initBool) {
 					this.$initBtn.addEventListener('click', (e) => {
 						e.preventDefault();
-						this.$audioMusic.play();
-						this.$audioVoice.play();
+						if (Number(destination.anchor === 10)) {
+							this.$audioMusic.play();
+						} else {
+							this.$audioMusic.play();
+							this.$audioVoice.play();
+						}
 						this.$initBool = true;
 						this.$init.remove();
 					});
@@ -414,6 +418,12 @@ class Story {
 
 		// Pole animation timeline
 		this.$poleAnimationTimeline;
+
+		// Switch lang button
+		this.$switchBtn = document.getElementsByClassName('m-story__switch')[0];
+		if (this.$switchBtn) {
+			this.$switchBtn.innerText = this.$lang === 'lim' ? `Beleef in het Nederlands` : `Beleef in het Limburgs`;
+		}
 	}
 
 	// Event listeners
@@ -437,6 +447,14 @@ class Story {
 
 		if (this.$navButton) {
 			this.$navButton.addEventListener('click', this.disableScroll.bind(this));
+		}
+
+		if (this.$switchBtn) {
+			this.$switchBtn.addEventListener('click', (e) => {
+				e.preventDefault();
+				const lang = this.$lang === 'nl' ? 'lim' : 'nl';
+				window.location.href = `${window.location.origin}/story?lang=${lang}#1`;
+			});
 		}
 	}
 
@@ -535,18 +553,19 @@ class Story {
 			lang = 'lim';
 		}
 
-		fetch(`/txt/text-${lang}-${anchor}.svg`)
-			.then((response) => {
-				return response.text();
-			})
-			.then((data) => {
-				if (Number(document.getElementsByClassName('m-story__text')[anchor-1].getAttribute('data-id')) === anchor) {
-					document.getElementsByClassName('m-story__text')[anchor-1].innerHTML = data;
-				}
-			});
-		setTimeout(() => {
-			this.runRightAnimation(anchor);
-		}, 500);
+			fetch(`/txt/text-${lang}-${anchor}.svg`)
+				.then((response) => {
+					return response.text();
+				})
+				.then((data) => {
+					if (Number(document.getElementsByClassName('m-story__text')[anchor-1].getAttribute('data-id')) === anchor) {
+						document.getElementsByClassName('m-story__text')[anchor-1].innerHTML = data;
+					}
+				});
+			setTimeout(() => {
+				this.runRightAnimation(anchor);
+			}, 500);
+
 	}
 
 	// Run animation for right paragraph
@@ -588,14 +607,16 @@ class Story {
 	// Place right object per section
 	fetchObjectSvg(anchor) {
 		
-		fetch(`/img/object${anchor}.svg`)
-			.then((response) => {
-				return response.text();
-			})
-			.then((data) => {
-				document.getElementsByClassName('m-story__object--container')[anchor - 1].innerHTML += data;
-				this.placeObjectSVG(anchor);
-			});
+		if (anchor !== 10) {
+			fetch(`/img/object${anchor}.svg`)
+				.then((response) => {
+					return response.text();
+				})
+				.then((data) => {
+					document.getElementsByClassName('m-story__object--container')[anchor - 1].innerHTML += data;
+					this.placeObjectSVG(anchor);
+				});
+		}
 
 	}
 
@@ -631,9 +652,19 @@ class Story {
 
 	// Animate section specific object
 	animateObject(element) {
+		let speed;
+
+		if (window.innerWidth > 1200) {
+			speed = 10;
+		} else if (window.innerWidth >= 768 && window.innerWidth <= 1200) {
+			speed = 5;
+		} else {
+			speed = 3;
+		}
+
 		this.$objectAnimation = new TimelineMax();
 		this.$objectAnimation
-			.to(element, 3, {
+			.to(element, speed, {
 				x: Math.round(Math.random() * (window.innerWidth - element.getBoundingClientRect().width)),
 				y: Math.round(Math.random() * ((window.innerHeight / 2) - element.getBoundingClientRect().height)), 
 				ease:Power0.easeInOut,
@@ -761,12 +792,14 @@ class Story {
 
 	// Place right audio paths + play
 	getRightAudio(anchor) {
-		this.$audioVoice.src = `/audio/voiceover/${this.$lang}/${anchor}.mp3`;
-		setTimeout(() => {
-			if (this.$initBool) {
-				this.$audioVoice.play();
-			}
-		}, 50);
+		if (anchor !== 10) {
+			this.$audioVoice.src = `/audio/voiceover/${this.$lang}/${anchor}.mp3`;
+			setTimeout(() => {
+				if (this.$initBool) {
+					this.$audioVoice.play();
+				}
+			}, 50);
+		}
 
 		if (anchor === 7) {
 			setTimeout(() => {
@@ -782,14 +815,14 @@ class Story {
 				}
 			}, 50);
 			this.getPole();
-		} else if (anchor === 9) {
+		} else if ((anchor === 9 || anchor === 10) && this.$audioMusic.src !== `${window.location.origin}/audio/music/9.mp3`) {
 			this.$audioMusic.src = '/audio/music/9.mp3';
 			setTimeout(() => {
 				if (this.$initBool) {
 					this.$audioMusic.play();
 				}
 			}, 50);
-		} else if ((anchor !== 7 ||anchor !== 8 || anchor !== 9) && this.$audioMusic.src !== `${window.location.origin}/audio/music/1.mp3`) {
+		} else if ((anchor < 7) && this.$audioMusic.src !== `${window.location.origin}/audio/music/1.mp3`) {
 			this.$audioMusic.src = '/audio/music/1.mp3';
 			setTimeout(() => {
 				if (this.$initBool) {
